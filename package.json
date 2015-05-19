@@ -10,7 +10,7 @@
     "url": "git+https://github.com/varsitynewsnetwork/waterboy.git"
   },
   "main": "index.js",
-  "devDependencies": {
+  "dependencies": {
     "browser-sync": "^2.2.1",
     "browserify": "^9.0.3",
     "connect-modrewrite": "^0.7.11",
