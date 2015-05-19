@@ -1,2 +1,3 @@
-# dat-waterboi
-A shared set of Gulp tasks for awesome, JavaScript applications
+# waterboy
+
+> A shared set of Gulp tasks for awesome, JavaScript applications
