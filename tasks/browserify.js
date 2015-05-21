@@ -9,7 +9,13 @@ var browserify = require('browserify'),
 
 module.exports = function (gulp, config) {
   gulp.task('browserify', function () {
-    return browserify('./' + config.src.root + '/main.js')
+    var options = {};
+
+    if (config.hasOwnProperty('browserify') && config.browserify.hasOwnProperty('noParse')) {
+      options.noParse = config.browserify.noParse;
+    }
+
+    return browserify('./' + config.src.root + '/main.js', options)
       .bundle()
       .pipe(source(config.src.root + '/main.js'))
       .pipe(buffer())
