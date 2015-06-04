@@ -17,7 +17,7 @@ module.exports = function (gulp, config) {
   }
 
   gulp.task('sass', ['clean'], function() {
-    return gulp.src(config.sass.files))
+    return gulp.src(config.sass.files)
     .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
     .pipe(sass(config.sass))
     .pipe(concat(output))
