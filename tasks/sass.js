@@ -17,11 +17,7 @@ module.exports = function (gulp, config) {
   }
 
   gulp.task('sass', ['clean'], function() {
-    return gulp.src([
-      config.src.root + '/main.scss',
-      'node_modules/angular-toggle-switch/angular-toggle-switch.css',
-      'node_modules/ui-select/dist/select.css'
-    ])
+    return gulp.src(config.sass.files))
     .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
     .pipe(sass(config.sass))
     .pipe(concat(output))
