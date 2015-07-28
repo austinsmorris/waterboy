@@ -10,8 +10,8 @@ var concat = require('gulp-concat'),
 module.exports = function (gulp, config) {
   var output = 'main.css';
 
-  // add revision number to output file for staging and production
-  if (gutil.env.production || gutil.env.staging) {
+  // add revision number to output file for staging and production and demo
+  if (gutil.env.production || gutil.env.staging || gutil.env.demo) {
     var rev = Math.random().toString(36).substring(3);
     output = 'main' + rev + '.css';
   }
