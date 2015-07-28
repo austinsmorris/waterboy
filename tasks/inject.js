@@ -14,7 +14,7 @@ module.exports = function (gulp, config) {
 
     // nutso:
     var env = gutil.env.production ? 'production' : gutil.env.staging ? 'staging' : gutil.env.demo ? 'demo' : 'dev';
-    var configFile = __dirname + '/../config-newrelic-' + env + '.js';
+    var configFile = process.cwd() + '/gulp/config-newrelic-' + env + '.js';
 
     return gulp.src(config.dist.root + '/*.html')
       .pipe(inject(sources, config.inject))
