@@ -22,7 +22,7 @@ module.exports = function (gulp, config) {
       .pipe(rename(function (path) {
         path.dirname = ''; //strip the src path
 
-        if (gutil.env.production || gutil.env.staging) {
+        if (gutil.env.production || gutil.env.staging || gutil.env.demo) {
           var rev = Math.random().toString(36).substring(3);
           path.basename += rev;
         }
