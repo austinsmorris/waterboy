@@ -1,6 +1,7 @@
 'use strict';
 
-var browserify = require('browserify'),
+var argv = require('yargs').argv,
+  browserify = require('browserify'),
   buffer = require('vinyl-buffer'),
   gutil = require('gulp-util'),
   rename = require('gulp-rename'),
@@ -15,9 +16,15 @@ module.exports = function (gulp, config) {
       options.noParse = config.browserify.noParse;
     }
 
-    return browserify('./' + config.src.root + '/main.js', options)
+    var mainjs = config.environment.dev.mainjs;
+
+    if (argv.test) {
+      mainjs = config.environment.test.mainjs;
+    }
+
+    return browserify('./' + mainjs, options)
       .bundle()
-      .pipe(source(config.src.root + '/main.js'))
+      .pipe(source(mainjs))
       .pipe(buffer())
       .pipe(rename(function (path) {
         path.dirname = ''; //strip the src path
