@@ -4,7 +4,7 @@ module.exports = function (gulp, config) {
   gulp.task('copy-fonts', ['clean'], function () {
     return gulp.src([
       'node_modules/bootstrap-sass/assets/fonts/bootstrap/*.{ttf,woff,woff2,svg,eot}',
-      'node_modules/uniform/assets/fonts/*'
+      'node_modules/@vnn/uniform/src/fonts/*'
     ]).pipe(gulp.dest(config.dist.root + '/fonts'));
   });
 
